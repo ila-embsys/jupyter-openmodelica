@@ -152,7 +152,8 @@ class OpenModelicaKernel(Kernel):
                 self.send_response(self.iopub_socket, 'stream', stream_content) '''
                 display_content = {'source': 'kernel',
                                    'data': {'text/html': finaldata
-                                            }
+                                            },
+                                   'metadata': {}
                                    }
                 self.send_response(self.iopub_socket, 'display_data', display_content)
         else:
@@ -170,7 +171,8 @@ class OpenModelicaKernel(Kernel):
             if not silent:
                 display_content = {'source': 'kernel',
                                    'data': {'text/plain': str(val)
-                                            }
+                                            },
+                                   'metadata': {}
                                    }
                 self.send_response(self.iopub_socket, 'display_data', display_content)
 
